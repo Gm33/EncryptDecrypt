@@ -1,0 +1,46 @@
+<div class="form">
+  <div class="form-group">
+    <label for="nInput">N:</label>
+    <input type="number" class="form-control" id="nInput" placeholder="Enter N" [(ngModel)]="n">
+  </div>
+  <div class="form-group">
+    <label for="eInput">E:</label>
+    <div class="input-group">
+      <input type="number" class="form-control" id="eInput" placeholder="Enter E" [(ngModel)]="e">
+      <div class="input-group-append">
+        <button class="btn btn-outline-primary" type="button" id="step1Btn" (click)="step1()">Step 1</button>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="d">
+    <div class="form-group">
+      <label for="dInput">D:</label>
+      <span class="form-control" id="dInput" name="pInput">{{ d }}</span>
+    </div>
+    <p>It took {{ duration }}ms to find the P and Q</p>
+
+    <div class="form-group">
+      <label for="messageInput">Encrypted Message:</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="messageInput" placeholder="Message to decrypt" [(ngModel)]="textToDecrypt"/>
+        <div class="input-group-append">
+          <button class="btn btn-outline-primary" type="button" id="step2Btn" (click)="step2()">Step 2</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group" *ngIf="decryptedCharacters">
+      <label for="decryptedCharactersInput">Decrypted characters:</label>
+      <div class="card" id="decryptedCharactersInput">
+        <div class="card-body">{{ arrayToString(decryptedCharacters) }}</div>
+      </div>
+    </div>
+
+    <div class="form-group" *ngIf="decryptedText">
+      <label for="decryptedInput">Decrypted text:</label>
+      <div class="card" id="decryptedInput">
+        <div class="card-body">{{ decryptedText }}</div>
+      </div>
+    </div>
+  </ng-container>
+</div>

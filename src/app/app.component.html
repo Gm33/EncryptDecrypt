@@ -1,0 +1,16 @@
+<div class="container">
+  <button class="btn mr-1" [class.btn-primary]="encrypt" (click)="encrypt = true">Encrypt</button>
+  <button class="btn" [class.btn-primary]="!encrypt" (click)="encrypt = false">Decrypt</button>
+
+  <div class="card mt-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ encrypt ? 'Encrypt' : 'Decrypt'}}</h5>
+
+      <!-- If encryption is selected -->
+      <app-encrypt *ngIf="encrypt"></app-encrypt>
+
+      <!-- If decryption is selected -->
+      <app-decrypt *ngIf="!encrypt"></app-decrypt>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="form">
+  <div class="form-group">
+    <label for="nInput">N:</label>
+    <div class="input-group">
+      <input type="number" class="form-control" id="nInput" placeholder="Enter N" [(ngModel)]="n">
+      <div class="input-group-append">
+        <button class="btn btn-outline-primary" type="button" id="step1Btn" (click)="step1()">Step 1</button>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="p && q">
+    <div class="form-group">
+      <label for="pInput">P:</label>
+      <span class="form-control" id="pInput" name="pInput">{{ p }}</span>
+    </div>
+    <div class="form-group">
+      <label for="qInput">Q:</label>
+      <span class="form-control" id="qInput">{{ q }}</span>
+    </div>
+    <p>It took {{ duration }}ms to find the P and Q</p>
+    <div class="form-group">
+      <label for="eInput">E:</label>
+      <div class="input-group">
+        <select style="width:180px;" id="eInput" [(ngModel)]="e">
+          <option *ngFor="let v of availableE" [value]="v">{{ v }}</option>
+        </select>
+        <div class="input-group-append">
+          <button class="btn btn-outline-primary" type="button" id="step2Btn" (click)="step2()">Step 2</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="messageInput">Message:</label>
+      <div class="input-group">
+        <input type="text" class="form-control" id="messageInput" placeholder="Message to encrypt" [(ngModel)]="textToEncrypt"/>
+        <div class="input-group-append">
+          <button class="btn btn-outline-primary" type="button" id="step3Btn" (click)="step3()">Step 3</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group" *ngIf="encryptedText">
+      <label for="encryptedInput">Encrypted message:</label>
+      <div class="card" id="encryptedInput">
+        <div class="card-body">{{ encryptedText }}</div>
+      </div>
+    </div>
+  </ng-container>
+</div>

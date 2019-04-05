@@ -1,0 +1,8 @@
+
+span.form-control, input[type="number"].form-control {
+  width: 100px;
+  max-width: 100px;
+}
+/deep/ label {
+  font-weight: 600;
+}
